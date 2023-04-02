@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src='//www.aa.com/jquery.js'></script>
-
-    <script src="fuzzyset.js"></script>
 
     <style>
         #voice-input-btn {
@@ -30,27 +27,36 @@
             border: 1px solid black;
             padding: 10px;
             margin-top: 10px;
-            width: 800px;
+            height: 100px;
+            width: 500px;
+        }
+
+        #answer-box2 {
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            width: 500px;
         }
 
         .speech {
             border: 1px solid #ddd;
-            width: 300px;
+            width: 500px;
             padding: 0;
             margin: 0;
         }
 
         .speech input {
             border: 0;
-            width: 240px;
+            width: 500px;
             display: inline-block;
-            height: 30px;
+            height: 60px;
         }
 
         .speech img {
             float: right;
-            width: 40px;
+            width: 20px;
         }
+
     </style>
 </head>
 <body>
@@ -64,13 +70,22 @@
 
 <!-- Search Form -->
 <div class="speech">
-    <input type="text" name="q" id="transcript" placeholder="Type your question..."/>
     <button id="voice-input-btn" onclick="startDictation()"><i class="fa fa-microphone"></i></button>
+    <input type="text" name="q" id="transcript" placeholder="Type your question..."/>
     <button id="submit-btn">Submit</button>
     <!--    <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />-->
 </div>
 <div id="answer-box"></div>
-<div id="answer-box2"></div>
+
+<div id="answer-box2">
+    <p>Sample questions</p>
+    <p>What are the library's opening hours?</p>
+    <p>What are the library's opening hours during the weekends?</p>
+    <p>What are the library's opening hours during the weekdays?</p>
+    <p></p>
+    <p>What is the library's policy on lost books?</p>
+
+</div>
 <!-- HTML5 Speech Recognition API -->
 <script>
     function startDictation() {
@@ -128,11 +143,11 @@
                 event.preventDefault();
                 var text_val = $('#transcript').val();
                 $.ajax({
-                url: "http://127.0.0.1:5001/query_sparc",
+                url: "https://flask-cs-agent.onrender.com/query_sparc",
                 type: "POST",
                 headers: {
                     "Access-Control-Allow-Headers": "*",
-                    "Access-Control-Allow-Origin": "http://127.0.0.1:5001/query_sparc"
+                    "Access-Control-Allow-Origin": "https://flask-cs-agent.onrender.com/query_sparc"
 
                 },
                 data: {
