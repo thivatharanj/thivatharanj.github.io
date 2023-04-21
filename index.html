@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html style="background-image: url('Books.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;">
 <head>
     <meta charset="utf-8">
     <title>CS5368</title>
@@ -57,10 +60,22 @@
             width: 20px;
         }
 
+        .center {
+          margin: auto;
+          width: 28%;
+          border: 3px solid green;
+          padding: 10px;
+            background-color: #dddddd;
+        }
+        .h1 {
+            text-align:center;
+        }
+
     </style>
 </head>
 <body>
-<h1>AI Library Chatbot</h1>
+<div class="center">
+<h1 class="h1">AI Library Chatbot</h1>
 <!--    <div id="answer"></div>-->
 <!--&lt;!&ndash;    <button id="voice-input-btn"><i class="fa fa-microphone"></i></button>&ndash;&gt;-->
 <!--    <input type="text" x-webkit-speech placeholder="Type your question...">-->
@@ -69,7 +84,7 @@
 <!--    <div id="answer-box"></div>-->
 
 <!-- Search Form -->
-<div class="speech">
+<div class="speech" >
     <button id="voice-input-btn" onclick="startDictation()"><i class="fa fa-microphone"></i></button>
     <input type="text" name="q" id="transcript" placeholder="Type your question..."/>
     <button id="submit-btn">Submit</button>
@@ -84,7 +99,7 @@
     <p>What are the library's opening hours during the weekdays?</p>
     <p></p>
     <p>What is the library's policy on lost books?</p>
-
+</div>
 </div>
 <!-- HTML5 Speech Recognition API -->
 <script>
